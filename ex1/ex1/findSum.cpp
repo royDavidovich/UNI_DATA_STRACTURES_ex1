@@ -12,13 +12,13 @@ struct StackNode
     StackNode* m_next;
 };
 
-class Stack
+class myStack
 {
 private:
     StackNode* m_top;  // the top item in my stack
 
 public:
-    Stack() : m_top(nullptr) {}
+    myStack() : m_top(nullptr) {}
 
     bool IsEmpty() const
     {
@@ -54,7 +54,7 @@ public:
         }
     }
 
-    ~Stack()
+    ~myStack()
     {
         while (!IsEmpty())
         {
@@ -113,7 +113,7 @@ void FindSum::findPairsRecursive(const int i_Arr[], int i_ArrSize, int i_GoalSum
 
 void FindSum::findPairsStackSimulated(const int i_Arr[], int i_ArrSize, int i_GoalSum)
 {
-    Stack simStack;
+    myStack simStack;
 
     ItemType startFrame{};
     startFrame.m_numLeft = i_ArrSize;

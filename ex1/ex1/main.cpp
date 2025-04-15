@@ -6,24 +6,33 @@ using namespace std;
 
 int main()
 {
-    bool validArrayInput = false, validArraySizeInput = false, validSumInput = false;
-    int i_ArrSize;
+    bool validArrayInput = true, validArraySizeInput = true, validGoalSumInput = true;
+    int i_ArrSize, i_GoalSum;
+    int* i_Arr = NULL;
+    
     cin >> i_ArrSize;
+    if (i_ArrSize <= 0)
+    {
+        validArraySizeInput = false;
+    }
 
-    int* i_Arr = new int[i_ArrSize];
+    i_Arr = new int[i_ArrSize];
     for (int i = 0; i < i_ArrSize; ++i)
     {
         cin >> i_Arr[i];
+        if (i_Arr[i] < 0)
+        {
+            validArrayInput = false;
+        }
     }
 
-    int i_GoalSum;
     cin >> i_GoalSum;
+    if (i_GoalSum <= 0)
+    {
+        validGoalSumInput = false;
+    }
 
-    // validArrayInput = ....  ;
-    // validArraySizeInput = ....  ;
-    // validSumInput = ....  ;
-
-    bool validInput = validArrayInput && validArraySizeInput && validSumInput;
+    bool validInput = validArrayInput && validArraySizeInput && validGoalSumInput;
     if (validInput)
     {
         cout << "Iterative algorithm::" << endl;
